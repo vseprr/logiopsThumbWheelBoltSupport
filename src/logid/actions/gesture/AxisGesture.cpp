@@ -79,7 +79,7 @@ void AxisGesture::move(int16_t axis) {
     const auto threshold = _config.threshold.value_or(
             defaults::gesture_threshold);
     int32_t new_axis = _axis + axis;
-    int low_res_axis = InputDevice::getLowResAxis(axis);
+    int low_res_axis = InputDevice::getLowResAxis(_input_axis.value());
     int hires_remainder = _hires_remainder;
 
     if (new_axis > threshold) {
